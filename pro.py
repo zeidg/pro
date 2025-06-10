@@ -1,5 +1,5 @@
 '''
-lSP-projectink of github:https://github.com/zeidg/project.git
+lSP-projectink of github:https://github.com/zeidg/pro.git
 '''
 import pandas as pd
 import numpy as np
@@ -60,11 +60,14 @@ if __name__ == "__main__":
     # Use multiprocessing to process chunks
     with Pool(num_chunks) as pool:
         results = pool.map(process_chunk, chunks)
-
-    # Combine processed chunks
+        
+      # Combine processed chunks
     processed_movies = pd.concat(results)
     
     print(processed_movies)
+
+    print("Null values per column:")
+    print(file.isnull().sum())
 
     get_result= requests.get("https://raw.githubusercontent.com/zeidg/project/main/Netflix_Movies_and_TV_Shows.json")
     if get_result:
