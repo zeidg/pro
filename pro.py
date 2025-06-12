@@ -72,9 +72,9 @@ if __name__ == "__main__":
     get_result= requests.get("https://github.com/zeidg/pro")
     if get_result:
         print("Request was successful")
-        print(get_result.text)
         print(get_result.status_code)
         print(get_result.url)
+        print(get_result.text)
         
     else:
         print("Request was not successful")
