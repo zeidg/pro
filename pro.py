@@ -61,7 +61,7 @@ if __name__ == "__main__":
     with Pool(num_chunks) as pool:
         results = pool.map(process_chunk, chunks)
         
-      # Combine processed chunks
+    # Combine processed chunks
     processed_movies = pd.concat(results)
     
     print(processed_movies)
@@ -69,7 +69,7 @@ if __name__ == "__main__":
     print("Null values per column:")
     print(file.isnull().sum())
 
-    get_result= requests.get("https://raw.githubusercontent.com/zeidg/project/main/Netflix_Movies_and_TV_Shows.json")
+    get_result= requests.get("https://raw.githubusercontent.com/zeidg/pro/main/Netflix_Movies_and_TV_Shows.json")
     if get_result:
         print("Request was successful")
         print(get_result.status_code)
