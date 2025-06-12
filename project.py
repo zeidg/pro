@@ -1,5 +1,5 @@
-'''
-lSP-projectink of github:https://github.com/zeidg/pro.git
+'''\
+link of github:https://github.com/nouraldeen87/DSP-project
 '''
 import pandas as pd
 import numpy as np
@@ -51,6 +51,7 @@ if __name__ == "__main__":
 
     file.to_json("Netflix_Movies_and_TV_Shows.json", orient="records")
     movies = pd.read_json("Netflix_Movies_and_TV_Shows.json")
+    print(movies.isnull())
     movies.set_index("title", inplace=True)
 
     # Split DataFrame into chunks
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     # Use multiprocessing to process chunks
     with Pool(num_chunks) as pool:
         results = pool.map(process_chunk, chunks)
-        
+
     # Combine processed chunks
     processed_movies = pd.concat(results)
     
@@ -69,13 +70,11 @@ if __name__ == "__main__":
     print("Null values per column:")
     print(file.isnull().sum())
 
-    get_result= requests.get("https://github.com/zeidg/pro")
+    get_result= requests.get("https://github.com/nouraldeen87/DSP-project/blob/main/Netflix_Movies_and_TV_Shows.json")
     if get_result:
         print("Request was successful")
-        print(get_result.text)
         print(get_result.status_code)
         print(get_result.url)
-        
+        print(get_result.text)
     else:
         print("Request was not successful")
-        
